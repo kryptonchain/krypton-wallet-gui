@@ -20,7 +20,7 @@ Rectangle {
     Text {
         id: textOpenWalletDescr
         color: "#ffffff"
-        text: "If you are new to TurtleCoin, choose \"Create a new wallet\"."
+        text: "If you are new to Krypton, choose \"Create a new wallet\"."
         anchors.right: parent.right
         anchors.rightMargin: 15
         anchors.left: parent.left

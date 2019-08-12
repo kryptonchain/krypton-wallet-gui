@@ -67,5 +67,5 @@ func requestFeeOfNode(theNode node) (feeValue float64, err error) {
 		}
 	}
 
-	return theNodeFeeInfo.Amount / 100, nil
+	return theNodeFeeInfo.Amount / 1000000, nil
 }

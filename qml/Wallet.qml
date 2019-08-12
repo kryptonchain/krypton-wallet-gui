@@ -396,7 +396,7 @@ Rectangle {
         Text {
             id: textDescrCopyAddress
             color: "#858585"
-            text: "Copy your address to receive TRTL"
+            text: "Copy your address to receive ZOD"
             anchors.verticalCenter: buttonCopy.verticalCenter
             anchors.right: buttonCopy.left
             anchors.rightMargin: 15
@@ -1075,7 +1075,7 @@ Rectangle {
                     rectangleTransfer.transferPaymentID = "";
                 }
                 rectangleTransfer.transferFee = textInputTransferFee.text
-                dialogConfirmTransfer.show(rectangleTransfer.transferRecipient, rectangleTransfer.transferAmount + " TRTL + " + rectangleTransfer.transferFee + " (fee) + " + rectangleTransfer.nodeFeeValue + " (node fee)", rectangleTransfer.transferPaymentID);
+                dialogConfirmTransfer.show(rectangleTransfer.transferRecipient, rectangleTransfer.transferAmount + " ZOD + " + rectangleTransfer.transferFee + " (fee) + " + rectangleTransfer.nodeFeeValue + " (node fee)", rectangleTransfer.transferPaymentID);
             }
         }
 

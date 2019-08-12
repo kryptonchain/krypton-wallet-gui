@@ -8,7 +8,7 @@ package walletdmanager
 
 const (
 	// DefaultTransferFee is the default fee. It is expressed in ZOD
-	DefaultTransferFee float64 = 0.1
+	DefaultTransferFee float64 = 0.01
 
 	logWalletdCurrentSessionFilename     = "krypton-service-session.log"
 	logWalletdAllSessionsFilename        = "krypton-service.log"
