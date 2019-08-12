@@ -7,7 +7,7 @@
 package walletdmanager
 
 import (
-	"TurtleCoin-Nest/turtlecoinwalletdrpcgo"
+	"Krypton-Nest/turtlecoinwalletdrpcgo"
 	"bufio"
 	"io"
 	"math/rand"
@@ -147,7 +147,7 @@ func SendTransaction(transferAddress string, transferAmountString string, transf
 		return "", errors.New("wallet and/or blockchain not fully synced yet")
 	}
 
-	if !strings.HasPrefix(transferAddress, "TRTL") || (len(transferAddress) != 99 && len(transferAddress) != 187) {
+	if !strings.HasPrefix(transferAddress, "QQQ") || (len(transferAddress) != 99 && len(transferAddress) != 187) {
 		return "", errors.New("address is invalid")
 	}
 
@@ -161,7 +161,7 @@ func SendTransaction(transferAddress string, transferAmountString string, transf
 	}
 
 	if transferAmount <= 0 {
-		return "", errors.New("amount of TRTL to be sent should be greater than 0")
+		return "", errors.New("amount of ZOD to be sent should be greater than 0")
 	}
 
 	transferFee, err := strconv.ParseFloat(transferFeeString, 64) // transferFee is expressed in TRTL
@@ -329,7 +329,7 @@ func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, 
 			log.Fatal("error finding home directory. Error: ", err)
 		}
 		pathToHomeDir := usr.HomeDir
-		pathToAppLibDir := pathToHomeDir + "/Library/Application Support/TurtleCoin-Nest"
+		pathToAppLibDir := pathToHomeDir + "/Library/Application Support/Krypton-Nest"
 
 		pathToLogWalletdCurrentSession = pathToAppLibDir + "/" + pathToLogWalletdCurrentSession
 		pathToLogWalletdAllSessions = pathToAppLibDir + "/" + pathToLogWalletdAllSessions
@@ -675,7 +675,7 @@ func CreateWallet(walletFilename string, walletPassword string, walletPasswordCo
 			log.Fatal("error finding home directory. Error: ", err)
 		}
 		pathToHomeDir := usr.HomeDir
-		pathToAppLibDir := pathToHomeDir + "/Library/Application Support/TurtleCoin-Nest"
+		pathToAppLibDir := pathToHomeDir + "/Library/Application Support/Krypton-Nest"
 
 		pathToLogWalletdCurrentSession = pathToAppLibDir + "/" + pathToLogWalletdCurrentSession
 		pathToLogWalletdAllSessions = pathToAppLibDir + "/" + pathToLogWalletdAllSessions

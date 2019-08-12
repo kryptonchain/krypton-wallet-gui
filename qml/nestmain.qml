@@ -24,7 +24,7 @@ ApplicationWindow {
     minimumWidth: windowWidth
     minimumHeight: minWindowHeight
     color: "#333333"
-    title: "TurtleCoin Nest"
+    title: "Krypton Wallet GUI"
     visible: true
 
     Flickable{

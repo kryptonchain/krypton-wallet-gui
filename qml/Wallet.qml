@@ -100,7 +100,7 @@ Rectangle {
             Text {
                 id: textLockedUnit
                 color: "#cfcfcf"
-                text: "TRTL"
+                text: "ZOD"
                 anchors.right: parent.right
                 anchors.rightMargin: 18
                 anchors.bottom: parent.bottom
@@ -114,7 +114,7 @@ Rectangle {
             Text {
                 id: textAvailableUnit
                 color: "#cfcfcf"
-                text: "TRTL"
+                text: "ZOD"
                 font.family: "Arial"
                 font.pixelSize: 15
                 anchors.right: textLockedUnit.right
@@ -229,7 +229,7 @@ Rectangle {
         Text {
             id: textBalanceUnit
             color: "#ffffff"
-            text: "TRTL"
+            text: "ZOD"
             verticalAlignment: Text.AlignBottom
             anchors.left: textBalanceValue.right
             anchors.leftMargin: 15
@@ -800,7 +800,7 @@ Rectangle {
         Text {
             id: textTransferAmountUnit
             color: "#999999"
-            text: "TRTL"
+            text: "ZOD"
             anchors.verticalCenter: rectangleTextInputTransferAmount.verticalCenter
             horizontalAlignment: Text.AlignLeft
             font.pixelSize: 14
@@ -967,7 +967,7 @@ Rectangle {
         Text {
             id: textTransferFeeUnit
             color: "#999999"
-            text: "TRTL"
+            text: "ZOD"
             anchors.verticalCenter: rectangleTextInputTransferFee.verticalCenter
             horizontalAlignment: Text.AlignLeft
             font.pixelSize: 14
@@ -1024,7 +1024,7 @@ Rectangle {
         Text {
             id: textNodeFeeUnit
             color: "#999999"
-            text: "TRTL / tr."
+            text: "ZOD / tr."
             font.pixelSize: 14
             font.family: "Arial"
             font.bold: true

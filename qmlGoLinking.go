@@ -1,4 +1,5 @@
 // Copyright (c) 2018, The TurtleCoin Developers
+// Copyright (c) 2019, The KryptonChain Developers
 //
 // Please see the included LICENSE file for more information.
 //
@@ -6,7 +7,7 @@
 package main
 
 import (
-	"TurtleCoin-Nest/walletdmanager"
+	"Krypton-Nest/walletdmanager"
 
 	"github.com/atotto/clipboard"
 	_ "github.com/mattn/go-sqlite3"

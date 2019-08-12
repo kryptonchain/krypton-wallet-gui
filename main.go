@@ -1,13 +1,14 @@
 // Copyright (c) 2018, The TurtleCoin Developers
-//
+// Copyright (c) 2019, The KryptonChain Developers
+
 // Please see the included LICENSE file for more information.
 //
 
 package main
 
 import (
-	"TurtleCoin-Nest/turtlecoinwalletdrpcgo"
-	"TurtleCoin-Nest/walletdmanager"
+	"Krypton-Nest/turtlecoinwalletdrpcgo"
+	"Krypton-Nest/walletdmanager"
 	"encoding/csv"
 	"encoding/json"
 	"io"
@@ -45,7 +46,7 @@ var (
 	useCheckpoints              = true
 	displayFiatConversion       = false
 	stringBackupKeys            = ""
-	rateUSDTRTL                 float64 // USD value for 1 TRTL
+	rateUSDTRTL                 float64 // USD value for 1 ZOD
 	customRemoteDaemonAddress   = defaultRemoteDaemonAddress
 	customRemoteDaemonPort      = defaultRemoteDaemonPort
 	limitDisplayedTransactions  = true
@@ -78,7 +79,7 @@ func main() {
 			log.Fatal(err)
 		}
 		pathToHomeDir = usr.HomeDir
-		pathToAppFolder := pathToHomeDir + "/Library/Application Support/TurtleCoin-Nest"
+		pathToAppFolder := pathToHomeDir + "/Library/Application Support/Krypton-Nest"
 		os.Mkdir(pathToAppFolder, os.ModePerm)
 		pathToDB = pathToAppFolder + "/" + pathToDB
 
@@ -314,7 +315,7 @@ func getAndDisplayListTransactions(forceFullUpdate bool) {
 					amountString += "- "
 					amountString += strconv.FormatFloat(-amount, 'f', -1, 64)
 				}
-				amountString += " TRTL (fee: " + strconv.FormatFloat(transfer.Fee, 'f', 2, 64) + ")"
+				amountString += " ZOD (fee: " + strconv.FormatFloat(transfer.Fee, 'f', 2, 64) + ")"
 				confirmationsString := confirmationsStringRepresentation(transfer.Confirmations)
 				timeString := transfer.Timestamp.Format("2006-01-02 15:04:05")
 				transactionNumberString := strconv.Itoa(transactionNumber) + ")"
@@ -358,7 +359,7 @@ func transfer(transferAddress string, transferAmount string, transferPaymentID s
 	getAndDisplayBalances()
 	qmlBridge.ClearTransferAmount()
 	qmlBridge.FinishedSendingTransaction()
-	qmlBridge.DisplayPopup("TRTLs sent successfully", 4000)
+	qmlBridge.DisplayPopup("ZOD sent successfully", 4000)
 }
 
 func optimizeWalletWithFusion() {
@@ -677,7 +678,7 @@ func getAndDisplayListRemoteNodes() {
 				} else {
 					nodeNameAndFee += humanize.FtoaWithDigits(feeAmount, 2)
 				}
-				nodeNameAndFee += " TRTL)"
+				nodeNameAndFee += " ZOD)"
 				qmlBridge.ChangeTextRemoteNode(theIndex, nodeNameAndFee)
 			}()
 		}

@@ -1,4 +1,5 @@
 // Copyright (c) 2018, The TurtleCoin Developers
+// Copyright (c) 2019, The KryptonChain Developers
 //
 // Please see the included LICENSE file for more information.
 //
@@ -17,8 +18,8 @@ Dialog {
     standardButtons: StandardButton.Ok
     width: 900
 
-    property var addressDev: "TRTLv3jzutiQwqHL3qFwsu5EVLWesxZr1AFQ4AuMR3SD56n3rkHDkwj79eKwvaiU1nYQWGydKoXM6fXyiiGKsPDnVCNXzNdusxx"
-    property var websiteChat: "http://chat.turtlecoin.lol"
+    property var addressDev: "QQQ1ULhovJFX6Mau76zUZqXXpcheeaq1hXUdNTjMEBBNQNcH91oSotZNS7jGC9eTZ1QeDctbppKxJ28mtSWLNJiV7DecXMoJu2"
+    property var websiteChat: "https://www.kryptonchain.org"
     property var versionNest: ""
     property var newVersionNestAvailable: ""
     property var urlNewVersionNest: ""
