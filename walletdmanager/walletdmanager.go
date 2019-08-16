@@ -272,7 +272,7 @@ func SaveWallet() (err error) {
 func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, useCheckpoints bool, daemonAddress string, daemonPort string) (err error) {
 
 	if isWalletdRunning() {
-		errorMessage := "turtle-service is already running in the background.\nPlease close it via "
+		errorMessage := "krypton-cli is already running in the background.\nPlease close it via "
 
 		if isPlatformWindows {
 			errorMessage += "the task manager"
@@ -400,7 +400,7 @@ func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, 
 			return err
 		}
 
-		log.Info("Opening TurtleCoind and waiting for it to be ready.")
+		log.Info("Opening kryptond and waiting for it to be ready.")
 
 		readerTurtleCoindLog := bufio.NewReader(turtleCoindCurrentSessionLogFile)
 
@@ -412,14 +412,14 @@ func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, 
 				}
 			}
 			if strings.Contains(line, "Imported block with index") {
-				log.Info("TurtleCoind importing blocks: ", line)
+				log.Info("kryptond importing blocks: ", line)
 			}
 			if strings.Contains(line, "Core rpc server started ok") {
-				log.Info("TurtleCoind ready (rpc server started ok).")
+				log.Info("kryptond ready (rpc server started ok).")
 				break
 			}
 			if strings.Contains(line, "Node stopped.") {
-				errorMessage := "Error TurtleCoind: 'Node stopped'"
+				errorMessage := "Error kryptond: 'Node stopped'"
 				log.Error(errorMessage)
 				return errors.New(errorMessage)
 			}
@@ -440,7 +440,7 @@ func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, 
 		return err
 	}
 
-	log.Info("Opening turtle-service and waiting for it to be ready.")
+	log.Info("Opening krypton-cli and waiting for it to be ready.")
 
 	timesCheckLog := 0
 	timeBetweenChecks := 100 * time.Millisecond
@@ -463,7 +463,7 @@ func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, 
 			}
 			if strings.Contains(line, "Wallet loading is finished.") {
 				successLaunchingWalletd = true
-				log.Info("turtle-service ready ('Wallet loading is finished.').")
+				log.Info("krypton-cli ready ('Wallet loading is finished.').")
 				break
 			}
 			if strings.Contains(line, "Imported block with index") {
@@ -477,7 +477,7 @@ func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, 
 						errorMessage = errorMessage + line
 					}
 				} else {
-					errorMessage = "turtle-service stopped with unknown error"
+					errorMessage = "krypton-cli stopped with unknown error"
 				}
 
 				killWalletd()
@@ -495,7 +495,7 @@ func StartWalletd(walletPath string, walletPassword string, useRemoteNode bool, 
 	_, _, _, _, err = turtlecoinwalletdrpcgo.RequestStatus(rpcPassword)
 	if err != nil {
 		killWalletd()
-		return errors.New("error communicating with turtle-service via rpc")
+		return errors.New("error communicating with krypton-cli via rpc")
 	}
 
 	WalletdOpenAndRunning = true
@@ -518,9 +518,9 @@ func GracefullyQuitWalletd() {
 
 			err = cmdWalletd.Process.Kill()
 			if err != nil {
-				log.Error("failed to kill turtle-service: " + err.Error())
+				log.Error("failed to kill krypton-cli: " + err.Error())
 			} else {
-				log.Info("turtle-service killed without error")
+				log.Info("krypton-cli killed without error")
 			}
 		} else {
 			_ = cmdWalletd.Process.Signal(syscall.SIGTERM)
@@ -531,14 +531,14 @@ func GracefullyQuitWalletd() {
 			select {
 			case <-time.After(5 * time.Second):
 				if err := cmdWalletd.Process.Kill(); err != nil {
-					log.Warning("failed to kill turtle-service: " + err.Error())
+					log.Warning("failed to kill krypton-cli: " + err.Error())
 				}
-				log.Info("turtle-service killed as stopping process timed out")
+				log.Info("krypton-cli killed as stopping process timed out")
 			case err := <-done:
 				if err != nil {
-					log.Warning("turtle-service finished with error: " + err.Error())
+					log.Warning("krypton-cli finished with error: " + err.Error())
 				}
-				log.Info("turtle-service killed without error")
+				log.Info("krypton-cli killed without error")
 			}
 		}
 	}
@@ -564,14 +564,14 @@ func killWalletd() {
 			select {
 			case <-time.After(500 * time.Millisecond):
 				if err := cmdWalletd.Process.Kill(); err != nil {
-					log.Warning("failed to kill turtle-service: " + err.Error())
+					log.Warning("failed to kill krypton-cli " + err.Error())
 				}
-				log.Info("turtle-service killed as stopping process timed out")
+				log.Info("krypton-cli killed as stopping process timed out")
 			case err := <-done:
 				if err != nil {
-					log.Warning("turtle-service finished with error: " + err.Error())
+					log.Warning("krypton-cli finished with error: " + err.Error())
 				}
-				log.Info("turtle-service killed without error")
+				log.Info("krypton-cli killed without error")
 			}
 		}
 	}
@@ -588,9 +588,9 @@ func GracefullyQuitTurtleCoind() {
 
 			err = cmdTurtleCoind.Process.Kill()
 			if err != nil {
-				log.Error("failed to kill TurtleCoind: " + err.Error())
+				log.Error("failed to kill kryptond: " + err.Error())
 			} else {
-				log.Info("TurtleCoind killed without error")
+				log.Info("kryptond killed without error")
 			}
 		} else {
 			_ = cmdTurtleCoind.Process.Signal(syscall.SIGTERM)
@@ -601,14 +601,14 @@ func GracefullyQuitTurtleCoind() {
 			select {
 			case <-time.After(5 * time.Second):
 				if err := cmdTurtleCoind.Process.Kill(); err != nil {
-					log.Warning("failed to kill TurtleCoind: " + err.Error())
+					log.Warning("failed to kill kryptond: " + err.Error())
 				}
-				log.Info("TurtleCoind killed as stopping process timed out")
+				log.Info("kryptond killed as stopping process timed out")
 			case err := <-done:
 				if err != nil {
-					log.Warning("TurtleCoind finished with error: " + err.Error())
+					log.Warning("kryptond finished with error: " + err.Error())
 				}
-				log.Info("TurtleCoind killed without error")
+				log.Info("kryptond killed without error")
 			}
 		}
 	}
@@ -626,7 +626,7 @@ func GracefullyQuitTurtleCoind() {
 func CreateWallet(walletFilename string, walletPassword string, walletPasswordConfirmation string, privateViewKey string, privateSpendKey string, mnemonicSeed string, scanHeight string) (err error) {
 
 	if WalletdOpenAndRunning {
-		return errors.New("turtle-service is already running. It should be stopped before being able to generate a new wallet")
+		return errors.New("krypton-cli is already running. It should be stopped before being able to generate a new wallet")
 	}
 
 	if strings.Contains(walletFilename, "/") || strings.Contains(walletFilename, " ") || strings.Contains(walletFilename, ":") {
@@ -634,7 +634,7 @@ func CreateWallet(walletFilename string, walletPassword string, walletPasswordCo
 	}
 
 	if isWalletdRunning() {
-		errorMessage := "turtle-service is already running in the background.\nPlease close it via "
+		errorMessage := "krypton-cli is already running in the background.\nPlease close it via "
 
 		if isPlatformWindows {
 			errorMessage += "the task manager"
@@ -767,7 +767,7 @@ func CreateWallet(walletFilename string, walletPassword string, walletPasswordCo
 						errorMessage = errorMessage + line
 					}
 				} else {
-					errorMessage = "turtle-service stopped with unknown error"
+					errorMessage = "krypton-cli stopped with unknown error"
 				}
 
 				killWalletd()
