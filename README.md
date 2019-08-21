@@ -1,8 +1,8 @@
-# TurtleCoin Nest
+# Krypton Nest
 
 The universal desktop GUI wallet for TurtleCoin
 
-![Logo](/turtlecoinnestlogo.png)
+![Logo](/krypton-logo.png)
 
 ## Installation
 
