@@ -22,7 +22,7 @@ type nodeFeeInfo struct {
 	Amount  float64 `json:"amount"`
 }
 
-const urlKryptonRemoteNodes = ""
+const urlKryptonRemoteNodes = "https://raw.githubusercontent.com/kryptonchain/krypton-wallet-gui/krypton_master/krypton-nodes.json"
 const apiPointFee = "/fee"
 const apiPointFee2 = "/feeinfo"
 
