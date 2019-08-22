@@ -22,14 +22,14 @@ type nodeFeeInfo struct {
 	Amount  float64 `json:"amount"`
 }
 
-const urlTurtleCoinRemoteNodes = ""
+const urlKryptonRemoteNodes = ""
 const apiPointFee = "/fee"
 const apiPointFee2 = "/feeinfo"
 
 func requestListRemoteNodes() (remoteNodes []node) {
 
 	theNodes := new(nodes)
-	err := getJSONFromHTTPRequest(urlTurtleCoinRemoteNodes, theNodes)
+	err := getJSONFromHTTPRequest(urlKryptonRemoteNodes, theNodes)
 
 	if err != nil {
 
