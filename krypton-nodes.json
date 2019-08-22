@@ -1,0 +1,18 @@
+{
+    "nodes": [
+        {
+            "name": "public.kryptonchain.org",
+            "url": "public.kryptonchain.org",
+            "port": 12888,
+            "ssl": false,
+            "cache": false
+        },
+        {
+            "name": "asia.kryptonchain.org",
+            "url": "asia.kryptonchain.org",
+            "port": 12888,
+            "ssl": false,
+            "cache": false
+        }
+    ]
+}
